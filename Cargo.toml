@@ -1,0 +1,26 @@
+[package]
+name = "grleconvert"
+version = "0.1.0"
+edition = "2021"
+description = "Converts GIANTS GRLE/GDM density map files to PNG"
+license = "MIT"
+authors = ["Kim Brandwijk"]
+repository = "https://github.com/paint-a-farm/grleconvert"
+keywords = ["farming-simulator", "fs25", "grle", "gdm", "converter"]
+categories = ["command-line-utilities", "games"]
+
+[dependencies]
+png = "0.17"
+
+[profile.release]
+lto = true
+strip = true
+opt-level = "z"
+
+[[bin]]
+name = "grleconvert"
+path = "src/main.rs"
+
+[[bin]]
+name = "compare_pngs"
+path = "src/bin/compare_pngs.rs"

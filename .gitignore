@@ -1,0 +1,21 @@
+# Build artifacts
+/target/
+
+# Test/analysis scripts (not part of release)
+/test_scripts/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Cargo lock (library best practice, but we're a binary)
+# Cargo.lock
