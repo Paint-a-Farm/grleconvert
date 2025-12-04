@@ -24,3 +24,7 @@ path = "src/main.rs"
 [[bin]]
 name = "compare_pngs"
 path = "src/bin/compare_pngs.rs"
+
+[[bin]]
+name = "pixel_guide"
+path = "src/bin/pixel_guide.rs"

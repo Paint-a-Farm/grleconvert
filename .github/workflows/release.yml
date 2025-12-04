@@ -63,6 +63,7 @@ jobs:
           mkdir -p dist
           cp target/${{ matrix.target }}/release/grleconvert dist/
           cp target/${{ matrix.target }}/release/compare_pngs dist/
+          cp target/${{ matrix.target }}/release/pixel_guide dist/
           cd dist && tar -czvf ../${{ matrix.artifact }}.tar.gz *
 
       - name: Package (Windows)
@@ -71,6 +72,7 @@ jobs:
           mkdir dist
           copy target\${{ matrix.target }}\release\grleconvert.exe dist\
           copy target\${{ matrix.target }}\release\compare_pngs.exe dist\
+          copy target\${{ matrix.target }}\release\pixel_guide.exe dist\
           cd dist && 7z a -tzip ..\${{ matrix.artifact }}.zip *
 
       - name: Upload artifact

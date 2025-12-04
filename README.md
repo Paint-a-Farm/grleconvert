@@ -72,7 +72,37 @@ You can also specify an i3d file explicitly with `--i3d <path>`.
 ```bash
 # Compare two PNG files for differences (useful for verifying output against the official tool)
 compare_pngs file1.png file2.png
+
+# Generate a pixel value translation guide for a map
+pixel_guide mapUS.i3d                     # Output to stdout
+pixel_guide mapUS.i3d pixel_values.md     # Output to file
+
+# Include fill type names from base game data folder
+pixel_guide mapUS.i3d --data-dir /path/to/data
 ```
+
+### Pixel Value Guide
+
+The `pixel_guide` tool parses a map's i3d file and generates a comprehensive Markdown document explaining what each pixel value means for every density map and info layer file.
+
+This is useful for:
+
+- Understanding what values to paint when editing maps
+- Debugging crop growth states
+- Mapping farmland IDs to pixel values
+- Understanding ground type encoding
+
+**Config resolution:**
+
+The tool parses map-specific config files referenced in `maps.xml`:
+
+- `densityMapHeightTypes.xml` - fill types for height layer (what materials can be piled)
+- `fieldGround.xml` - ground types and spray types for ground layer
+- `farmlands.xml` - farmland IDs for farmlands layer
+- `weed.xml` - weed blocking state values for weed info layer
+- `fruitTypes.xml` - fruit type indices for fruits layer
+
+For base game maps or when map-specific configs aren't found, use `--data-dir` to specify the base game data folder (e.g., `data`), which contains the default config files in `maps/maps_*.xml`.
 
 ## Supported formats
 
